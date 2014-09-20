@@ -1,0 +1,23 @@
+Options +FollowSymlinks
+RewriteEngine on
+
+# pages simples
+RewriteRule ^accueil.html$										./index.php [L,QSA]
+RewriteRule ^mes-livres.html$									./index.php?p=meslivres [L,QSA]
+RewriteRule ^ajouter-un-livre.html$								./index.php?p=meslivres&add [L,QSA]
+RewriteRule ^mes-partages.html$									./index.php?p=demande_liste [L,QSA]
+RewriteRule ^utilisateurs.html$									./index.php?p=users [L,QSA]
+RewriteRule ^faq.html$											./index.php?p=faq [L,QSA]
+RewriteRule ^contact.html$										./index.php?p=contact [L,QSA]
+
+# pages avec paramètres
+RewriteRule ^livres(-([0-9]+)-([a-z-]+))?(-page([0-9]+))?.html$	./index.php?p=livres&genre=$2&page=$5 [L,QSA]
+RewriteRule ^admin-livres(-page([0-9]+))?.html$					./index.php?p=admin_livres&page=$2 [L,QSA]
+
+RewriteRule ^mes-livres-del-([0-9]+).html$						./index.php?p=meslivres&del=$1 [L,QSA]
+RewriteRule ^mes-livres-maj-([0-9]+).html$						./index.php?p=meslivres&maj=$1 [L,QSA]
+RewriteRule ^mes-livres-del-([0-9]+)-confirm.html$				./index.php?p=meslivres&del=$1&confirm [L,QSA]
+RewriteRule ^livre-([0-9]+)(-.+)?.html$							./index.php?p=livre&id=$1 [L,QSA]
+RewriteRule ^demande-([0-9]+)(-.+)?.html$						./index.php?p=demande&id=$1 [L,QSA]
+RewriteRule ^demande-livre-([0-9]+)(-.+)?.html$					./index.php?p=demande_new&id=$1 [L,QSA]
+RewriteRule ^profil-([0-9]+)(-.+)?.html$						./index.php?p=user&id=$1 [L,QSA]
